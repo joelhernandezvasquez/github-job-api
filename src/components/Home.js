@@ -6,9 +6,9 @@ import "../sass/main.scss";
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div className="home">
               
-               <div className="search-filter-container container">
+               <div className="search-filter-container">
                     <SearchFilterContainer/>
                </div>
              

@@ -11,14 +11,31 @@
 body{
     font-family: 'Kumbh Sans', sans-serif;
     background:$lightGray;
+    
+   
 }
 
 img{
     max-width: 100%;
 }
 
+.home{
+    position:relative;
+
+}
+
 .search-filter-container{
-    
+   position:absolute;
+   width:100%;
+   top:-42px;
+    .container{
+       
+        height:100%;
+        background:$pureWhite;
+        height:80px;
+        border-radius: 6px;
+    }
+ 
 }
 
 
