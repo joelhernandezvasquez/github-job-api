@@ -1,5 +1,25 @@
+@import 'colors.scss';
+@import 'utilities.scss';
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
 
 
 body{
     font-family: 'Kumbh Sans', sans-serif;
+    background:$lightGray;
 }
+
+img{
+    max-width: 100%;
+}
+
+.search-filter-container{
+    
+}
+
+
+

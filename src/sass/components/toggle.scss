@@ -1,0 +1,29 @@
+@import '../colors.scss';
+
+.toogle-container{
+    color:white;
+    width:112px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .toggle-btn-container{
+        width:48px;
+        height:24px;
+        display: flex;
+        align-items: center;
+        background:$pureWhite;
+        border-radius: 12px;
+        padding:0.3rem;
+        cursor:pointer;
+        
+
+        .toggle-btn{
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background:$violet;
+        
+        }
+    }
+}

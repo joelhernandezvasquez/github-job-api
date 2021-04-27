@@ -1,10 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import IconSun from '../assets/desktop/icon-sun.svg';
+import IconMoon from '../assets/desktop/icon-moon.svg';
+import '../sass/components/toggle.scss';
 
-export default class DarkToggleMode extends Component {
+class DarkToggleMode extends Component {
     render() {
         return (
-            <div>
-                Toogle button
+            <div className="toogle-container">
+               <img src={IconSun} alt={"image"}/> 
+                 <div className="toggle-btn-container">
+                   <div className="toggle-btn">
+
+                   </div>
+                 </div>
+               <img src={IconMoon} alt={"image"}/> 
+
+
             </div>
         )
     }
