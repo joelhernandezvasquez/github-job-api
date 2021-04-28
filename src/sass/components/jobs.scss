@@ -1,0 +1,49 @@
+
+@import '../utilities.scss';
+@import '../colors.scss';
+@import '../fonts.scss';
+
+.job-list{
+    border:1px solid red;
+   padding-top: 8rem;
+   
+   .container{
+       display:grid;
+       grid-template-columns: repeat(auto-fit,minmax(327px,1fr));
+       gap:20px;
+       
+
+       .job-card{
+           background:$pureWhite;
+           border-radius: 6px;
+           padding: 2rem;
+          position: relative;
+        
+
+           .logo-container{
+               width: 50px;
+               height: 50px;
+               border-radius: 15px;
+               background:$violet;
+               display:flex;
+               align-items: center;
+               justify-content: center;
+               padding:5px;
+               position:absolute;
+               top:-30px;
+
+               img{
+                 max-width: 100%;
+                // border:1px solid black;
+                 
+               }
+           }
+
+           .job-details{
+               margin-top:1rem;
+           }
+       }
+   }
+  
+}
+

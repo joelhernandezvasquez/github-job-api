@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchFilterContainer from './SearchFilterContainer';
+import JobsList from './JobsList';
 import "../sass/main.scss";
 
 
@@ -8,10 +9,15 @@ class Home extends Component {
         return (
             <div className="home">
               
-               <div className="search-filter-container">
+               <section className="search-filter-container">
                     <SearchFilterContainer/>
-               </div>
-             
+               </section>
+
+               <section className="job-list-container">
+                  <JobsList/>
+               </section>
+
+            
             </div>
         )
     }
