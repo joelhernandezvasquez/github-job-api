@@ -10,9 +10,12 @@
 
 body{
     font-family: 'Kumbh Sans', sans-serif;
-    background:$lightGray;
-    
-   
+    background:$lightGray; 
+}
+
+:is(h1,h2,h3,h4)
+{
+    line-height:1.2;
 }
 
 
@@ -32,6 +35,17 @@ body{
         height:80px;
         border-radius: 6px;
     }
+
+    @media(min-width: 768px)
+    {
+        .container{
+           display:flex;
+           align-items: center;
+           justify-content: space-between;
+           
+           
+        }
+    }
  
 }
 
@@ -40,7 +54,7 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
-    border:1px solid red;
+    
 }
 
 

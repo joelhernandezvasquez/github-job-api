@@ -18,7 +18,7 @@ class Home extends Component {
                </section>
 
                <section className="load-more-container">
-                  <button className="default-btn"> Load More</button>
+                  <button className=" btn default-btn"> Load More</button>
                </section>
 
             

@@ -7,23 +7,6 @@
        display: flex;
        align-items: center;
 
-       input{
-         padding:1rem 0;
-         color:$darkGrey;
-         font-size: $bodyText;
-         border:none;
-         outline: transparent;
-        &::placeholder{
-            color: #19202D;
-
-            mix-blend-mode: normal;
-            opacity: 0.5;
-            font-size: $bodyText;
-            font-family: 'Kumbh Sans', sans-serif;
-            font-weight: 400;
-            
-        }
-       }
        
       #icon-filter{
           
@@ -32,6 +15,8 @@
       }
    }
 }
+
+
 
 .icon-search-box-container
 {
@@ -44,4 +29,11 @@
     border-radius: 5px;
     cursor: pointer;
    
+}
+
+.search-bar-fullScreen-container{
+   display:flex;
+   align-items: center;
+   gap:10px;
+  
 }

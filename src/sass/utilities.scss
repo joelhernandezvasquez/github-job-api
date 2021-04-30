@@ -9,13 +9,44 @@ $top-spacing:2rem;
    
 }
 
+.btn{
+    padding:1rem 2rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: $bodyText;
+    font-weight:700;
+    border:none;
+    border-radius: 5px;
+    outline: transparent;
+    cursor:pointer;
+}
+
 .default-btn{
     background:$violet;
     color:$pureWhite;
-    width:141px;
-    height:48px;
-    border:none;
-    outline: transparent;
-    
+    transition:background 0.3s ease-in-out;
+   
+    &:hover{
+     background:$lightViolet;
+   }
+}
 
+.main-input{
+    
+        padding:1rem 0;
+        color:$darkBlue;
+        font-size: $bodyText;
+        border:none;
+        outline: transparent;
+        font-weight: 300;
+       &::placeholder{
+           color: #19202D;
+    
+           mix-blend-mode: normal;
+           opacity: 0.5;
+           font-size: $bodyText;
+           font-family: 'Kumbh Sans', sans-serif;
+           font-weight: 400;
+           
+       }
+      
 }

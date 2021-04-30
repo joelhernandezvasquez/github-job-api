@@ -17,12 +17,17 @@
         padding:0.3rem;
         cursor:pointer;
         
-
+     
         .toggle-btn{
             width: 14px;
             height: 14px;
             border-radius: 50%;
             background:$violet;
+            transition:background 0.3s ease-in-out;
+
+            &:hover{
+                background:$lightViolet;
+            }
         
         }
     }
