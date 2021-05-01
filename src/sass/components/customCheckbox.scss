@@ -1,6 +1,74 @@
 
+@import '../colors.scss';
+@import '../fonts.scss';
+
 .checkbox-container{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap:10px;
+    //border: 1px solid black;
 }
+
+
+ .checkbox {
+    display: flex;
+   align-items: center;
+   gap:5px;
+    font-size: $bodyText;
+    color:$darkBlue;
+    font-weight: bold;
+
+ 
+  }
+
+ 
+
+.checkbox__control {
+    display: inline-grid;
+    width: 1.5rem;
+    height: 1.5rem;
+    background:$darkBlue;
+    mix-blend-mode: normal;
+    opacity: 0.1;
+     border-radius: 3px;
+
+     svg {
+        transition: transform 0.1s ease-in 5ms;
+        transform: scale(0);
+        transform-origin: bottom left;
+      }
+      
+   
+  }
+
+  .checkbox__input {
+    display: grid;
+    grid-template-areas: "checkbox";
+  
+    > * {
+      grid-area: checkbox;
+    }
+
+    input {
+        opacity: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+
+      
+           &:checked + .checkbox__control{
+               background:none;
+              opacity: 1;
+           }
+        &:checked + .checkbox__control svg {
+            transform: scale(1);
+            background:$violet;
+          }
+      }
+  }
+ 
+
+
+ 
+
+  

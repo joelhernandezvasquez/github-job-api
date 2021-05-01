@@ -24,7 +24,7 @@ class SearchBar extends Component {
 
   renderFullScreenSearchVersion = () =>{
       return(
-          <div className="search-bar-fullScreen-container container">
+          <div className="search-bar-fullScreen-container container ">
              <img src={IconSearchDesktop} alt="search icon"/>
              <input type="text"  className="main-input" placeholder ="Filter by title..."/>
           </div>

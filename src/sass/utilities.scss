@@ -50,3 +50,12 @@ $top-spacing:2rem;
        }
       
 }
+
+.borderLine{
+  width: 1px;
+  height: 80px;
+ background:$darkGrey;
+ mix-blend-mode: normal;
+ opacity: 0.2;
+    
+}

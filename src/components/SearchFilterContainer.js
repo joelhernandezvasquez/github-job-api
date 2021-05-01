@@ -5,6 +5,7 @@ import WorkTypeCheckbox from './WorkTypeCheckbox';
 import SearchJobResults from './SearchJobResults';
 import useDimension from './hooks/useDimension';
 import '../sass/components/searchFilterContainer.scss';
+import '../sass/utilities.scss';
 
 const SearchFilterContainer = ()  =>{
     
@@ -22,7 +23,9 @@ const SearchFilterContainer = ()  =>{
     return(
       <div className="container">
         <SearchBar viewVersion = {viewportDimension.width}/>
+        <div className="borderLine"></div>
         <FilterLocation/>
+        <div className="borderLine"></div>
         <WorkTypeCheckbox/>
         
 
