@@ -5,8 +5,9 @@
 .checkbox-container{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap:10px;
+    justify-content: space-between;
+    flex-basis: 320px;
+ 
     //border: 1px solid black;
 }
 
@@ -14,7 +15,7 @@
  .checkbox {
     display: flex;
    align-items: center;
-   gap:5px;
+   gap:15px;
     font-size: $bodyText;
     color:$darkBlue;
     font-weight: bold;
@@ -63,6 +64,7 @@
         &:checked + .checkbox__control svg {
             transform: scale(1);
             background:$violet;
+            border-radius: 3px;
           }
       }
   }

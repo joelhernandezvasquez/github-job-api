@@ -28,16 +28,29 @@
     justify-content: center;
     border-radius: 5px;
     cursor: pointer;
+    
    
 }
 
 .search-bar-fullScreen-container{
-   display:flex;
-   align-items: center;
-   gap:10px;
-   
-   input{
-      width: 100%;
-   }
   
-}
+     
+   input{
+        width:80%;
+      }
+
+      @media(min-width: 1200px)
+      {
+        // border: 1px solid red;
+         width: 400px;
+         input{
+            width:100%;
+          }
+      }
+   }
+    
+     
+   
+   
+  
+  

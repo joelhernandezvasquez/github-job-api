@@ -5,7 +5,7 @@ import '../sass/components/filterLocation.scss';
 
 const FilterLocation = () => {
     return (
-        <div className="filter-location-container container">
+        <div className="filter-location-container inner-spacing">
             <img src={IconLocation} alt="icon location"/>
              <input type="text"  className="main-input" placeholder ="Filter by location..."/>
         </div>

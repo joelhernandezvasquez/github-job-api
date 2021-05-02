@@ -18,6 +18,19 @@ $top-spacing:2rem;
     border-radius: 5px;
     outline: transparent;
     cursor:pointer;
+
+    @media(min-width:768px)
+    {
+        padding: 1rem;
+    }
+    @media(min-width:1200px)
+    {
+        padding: 1rem 2rem;
+    }
+
+    
+
+
 }
 
 .default-btn{
@@ -59,3 +72,20 @@ $top-spacing:2rem;
  opacity: 0.2;
     
 }
+
+.inner-spacing{
+    padding:0 1rem 0 1.5rem;
+   display: flex;
+   align-items: center;
+   gap:10px;
+     
+
+   @media(min-width: 1200px)
+   {
+       
+       padding:0 1rem 
+   }
+   
+   }
+
+  

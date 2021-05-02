@@ -1,12 +1,13 @@
 import React from 'react';
 import SearchJobResults from './SearchJobResults';
 import iconCheck from '../assets/desktop/icon-check.svg';
+import '../sass/utilities.scss';
 import '../sass/components/customCheckbox.scss';
 
 
 const WorkTypeCheckbox = () => {
     return (
-        <div className="checkbox-container container">
+        <div className="checkbox-container inner-spacing">
         <label className="checkbox">
             <span class="checkbox__input">
              <input type="checkbox" name="checkbox" />
