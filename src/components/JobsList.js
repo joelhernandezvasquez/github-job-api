@@ -34,6 +34,11 @@ class JobsList extends Component {
                      return <Job dataJob = {job}/>
                  })}
                </div>
+
+               <section className="load-more-container">
+                  <button className=" btn default-btn"> Load More</button>
+               </section>
+
             </div>
         )
     }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import {connect} from 'react-redux';
 import SearchBar from './SearchBar';
 import FilterLocation from './FilterLocation';
 import WorkTypeCheckbox from './WorkTypeCheckbox';
@@ -7,13 +8,16 @@ import useDimension from './hooks/useDimension';
 import '../sass/components/searchFilterContainer.scss';
 import '../sass/utilities.scss';
 
-const SearchFilterContainer = ()  =>{
+const SearchFilterContainer = ({isDarkModeActive})  =>{
     
   const viewportDimension = useDimension();
 
+
+  
+
   const renderMobileSearchVersion = () =>{
       return(
-        <div className="container">
+        <div className={`.container ${isDarkModeActive? 'blackBG': ''}`}>
         <SearchBar viewVersion = {viewportDimension.width}/>
       </div>
       )
@@ -42,4 +46,11 @@ const SearchFilterContainer = ()  =>{
     )
 }
 
-export default SearchFilterContainer;
+const mapStateToProps = (state) =>
+{
+  return {
+    isDarkModeActive:state.isDarkModeActive.isDarkModeActive
+  }
+}
+
+export default connect(mapStateToProps)(SearchFilterContainer);

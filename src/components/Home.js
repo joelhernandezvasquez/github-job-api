@@ -17,10 +17,7 @@ class Home extends Component {
                   <JobsList/>
                </section>
 
-               <section className="load-more-container">
-                  <button className=" btn default-btn"> Load More</button>
-               </section>
-
+              
             
             </div>
         )
