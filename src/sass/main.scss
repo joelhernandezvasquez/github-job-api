@@ -23,9 +23,7 @@ body{
     position:relative;
 
 }
-.blackBG{
-    background:black;
-}
+
 
 .search-filter-container{
    position:absolute;
@@ -37,7 +35,9 @@ body{
         background:$pureWhite;
         height:80px;
         border-radius: 6px;
+       
     }
+   
 
 
     @media(min-width: 768px)
@@ -46,6 +46,7 @@ body{
            display:flex;
            align-items: center;
            justify-content: space-around;
+           border:1px solid black;
            
            
         }

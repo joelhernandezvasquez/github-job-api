@@ -63,6 +63,12 @@ $top-spacing:2rem;
        }
       
 }
+.blackBG.main-input{
+    background:$darkBlue;
+    &::placeholder{
+        color: $pureWhite;
+    }
+}
 
 .borderLine{
   width: 1px;
@@ -88,4 +94,4 @@ $top-spacing:2rem;
    
    }
 
-  
+ 

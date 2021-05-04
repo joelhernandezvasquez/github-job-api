@@ -13,11 +13,9 @@ const SearchFilterContainer = ({isDarkModeActive})  =>{
   const viewportDimension = useDimension();
 
 
-  
-
   const renderMobileSearchVersion = () =>{
       return(
-        <div className={`.container ${isDarkModeActive? 'blackBG': ''}`}>
+        <div className={`container ${isDarkModeActive? 'blackBG': ''}`}>
         <SearchBar viewVersion = {viewportDimension.width}/>
       </div>
       )
@@ -37,7 +35,7 @@ const SearchFilterContainer = ({isDarkModeActive})  =>{
     )
 }
   return (      
-    <div className="searchFilterContainer">
+    <div>
           
           {viewportDimension.width < 768? renderMobileSearchVersion(): renderFullSearchVersion()}
        

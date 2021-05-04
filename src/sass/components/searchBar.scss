@@ -6,7 +6,6 @@
    .container{
        display: flex;
        align-items: center;
-
        
       #icon-filter{
           
@@ -14,7 +13,20 @@
           margin-right:15px; 
       }
    }
+    .blackBG.container{
+      background:$darkBlue;
+      border-radius: 6px;
+
+   }
+
 }
+
+.blackBG.search-bar-container{
+   background:$darkBlue;
+   border-radius: 6px;
+}
+
+
 
 
 
@@ -41,7 +53,7 @@
 
       @media(min-width: 1200px)
       {
-        // border: 1px solid red;
+      
          width: 400px;
          input{
             width:100%;

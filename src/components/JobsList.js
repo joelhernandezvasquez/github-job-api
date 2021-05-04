@@ -15,7 +15,7 @@ class JobsList extends Component {
         const fetchJobs = async () =>{
             const response = await axios("https://cors.bridged.cc/https://jobs.github.com/positions.json");
             this.setState({jobs:response.data});
-            console.log(this.state.jobs);
+            
         }
 
         fetchJobs();
