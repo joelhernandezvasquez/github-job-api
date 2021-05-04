@@ -3,10 +3,16 @@ import {connect} from 'react-redux';
 import {activeDarkMode} from '../actions/index';
 import IconSun from '../assets/desktop/icon-sun.svg';
 import IconMoon from '../assets/desktop/icon-moon.svg';
+import "../sass/main.scss";
 import '../sass/components/toggle.scss';
 
 class DarkToggleMode extends Component {
-    render() {
+    
+ 
+  componentDidUpdate() {
+    document.querySelector("body").classList.toggle("blackBG");
+  }
+  render() {
   
       return (
             <div className="toogle-container">

@@ -65,6 +65,8 @@ $top-spacing:2rem;
 }
 .blackBG.main-input{
     background:$darkBlue;
+    color:$pureWhite;
+    
     &::placeholder{
         color: $pureWhite;
     }

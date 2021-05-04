@@ -1,8 +1,12 @@
-import React from 'react';
+import React,{useRef} from 'react';
+import {connect} from 'react-redux';
+import useDarkMode from './hooks/useDarkMode';
 
-const Job = ({dataJob}) => {
+const Job = ({dataJob,isDarkModeActive}) => {
    
     const{company_logo,created_at,type,title,company,location} = dataJob;
+    const [activeDarkModeBackground,removeDarkModeBackground] = useDarkMode();
+    const jobCardRef = useRef();
 
     const styleLogoContainer = (image) =>{
   
@@ -18,7 +22,7 @@ const Job = ({dataJob}) => {
     }
    
     return (
-        <div className="job-card">
+        <div ref={jobCardRef} className={`job-card  ${isDarkModeActive? activeDarkModeBackground(jobCardRef): removeDarkModeBackground(jobCardRef)}`}>
           
             <div className="logo-container">
               <img src={company_logo} alt="logo"/> 
@@ -45,4 +49,9 @@ const Job = ({dataJob}) => {
     )
 }
 
-export default Job;
+const mapStateToProps = (state) =>{
+    return{
+      isDarkModeActive: state.isDarkModeActive.isDarkModeActive
+    }
+}
+export default connect(mapStateToProps)(Job);

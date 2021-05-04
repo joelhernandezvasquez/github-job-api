@@ -23,7 +23,7 @@ const SearchBar = ({viewVersion,isDarkModeActive}) => {
         <div ref={refSearchBarContainer} className={`search-bar-container  ${isDarkModeActive? activeDarkModeBackground(refSearchBarContainer): removeDarkModeBackground(refSearchBarContainer)}`}>
         <div ref={refContainer} className={`container ${isDarkModeActive? activeDarkModeBackground(refContainer): removeDarkModeBackground(refContainer)}`} >
         <input ref={inputRef} type="text" className={`main-input ${isDarkModeActive? activeDarkModeBackground(inputRef): removeDarkModeBackground(inputRef)}`} placeholder ="Filter by title..."/>
-         <img id="icon-filter" src={isDarkModeActive?IconFilter: IconFilterPath} alt="icon"/>
+         <img id="icon-filter" src={isDarkModeActive?IconFilterPath: IconFilter} alt="icon"/>
          <div className="icon-search-box-container">
              <img src={IconSearch} alt="icon search"/>
          </div>
