@@ -1,51 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Job from './Job';
-import axios from 'axios';
+import {fetchJobs} from '../actions';
 import '../sass/colors.scss';
-
 import '../sass/components/jobs.scss';
 
 class JobsList extends Component {
    
-  state = {
-      jobs:[]
-  }
-  
-    componentDidMount () { 
-     
-        const fetchJobs = async () =>{
-            const response = await axios("https://cors.bridged.cc/https://jobs.github.com/positions.json");
-            this.setState({jobs:response.data});
-            
-        }
 
-        fetchJobs();
+    componentDidMount = () =>  { 
+     this.props.fetchJobs();
    }
 
-  /*  getStyle = () =>{
-     if(this.props.isDarkModeActive)
-     {
-         return{
-             background:'#121721'
-         }
-     }
-     else{
-         return{
-             background:'#F4F6F8'
-         }
-     }
-   } */
-
     render() {
-        const Joblist = this.state.jobs.filter((job,index) => index < 12);
-
-
+        const joblist = this.props.jobs.filter((job,index) => index < 12);
+        
         return (
             <div className="job-list">
                <div className="container">
-
-                 {Joblist.map(job=>{
+            
+                 {joblist.map(job=>{
                      return <Job dataJob = {job}/>
                  })}
                </div>
@@ -60,9 +34,10 @@ class JobsList extends Component {
 }
 
 const mapStateToProps = (state) =>{
-  return{
-      isDarkModeActive: state.isDarkModeActive.isDarkModeActive
+ 
+    return{
+    jobs: state.jobs.jobs
   }
 }
 
-export default connect(mapStateToProps)(JobsList);
+export default connect(mapStateToProps,{fetchJobs})(JobsList);
