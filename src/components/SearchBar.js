@@ -18,7 +18,10 @@ const SearchBar = ({viewVersion,isDarkModeActive,fetchJobsByTitle}) => {
     const [activeDarkModeBackground,removeDarkModeBackground] = useDarkMode();
     const [searchTerm,setSearchTerm] = useState("");
   
-  
+  const onHandleSearch = () =>{
+      fetchJobsByTitle(searchTerm)
+      setSearchTerm("");
+  }
 
   const renderMobileSearchVersion = () =>{
    
@@ -37,7 +40,7 @@ const SearchBar = ({viewVersion,isDarkModeActive,fetchJobsByTitle}) => {
         />
          
          <img id="icon-filter" src={isDarkModeActive?IconFilterPath: IconFilter} alt="icon"/>
-         <div className="icon-search-box-container" onClick={()=>fetchJobsByTitle(searchTerm)}>
+         <div className="icon-search-box-container" onClick={()=>onHandleSearch()}>
              <img src={IconSearch} alt="icon search"/>
          </div>
         </div>

@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Job from './Job';
+import Overlay from './Overlay';
+import Error from './Error';
 import {fetchJobs} from '../actions';
 import '../sass/colors.scss';
 import '../sass/components/jobs.scss';
 
 class JobsList extends Component {
    
-
+   
     componentDidMount = () =>  { 
      this.props.fetchJobs();
+     
    }
 
+   renderJobList = () =>{
+     
+ 
+      const jobsList = this.props.jobs.filter((job,index) => index < 12);
+        return (
+          jobsList.map(job =>{
+            return <Job dataJob={job}/>
+          })
+        )
+          
+
+      }
+
     render() {
-        const joblist = this.props.jobs.filter((job,index) => index < 12);
-        
+     
         return (
             <div className="job-list">
                <div className="container">
-            
-                 {joblist.map(job=>{
-                     return <Job dataJob = {job}/>
-                 })}
+              {this.props.isOverlayActive? <Overlay childComponent={<Error/>}/>: this.renderJobList()} 
+              
                </div>
 
                <section className="load-more-container">
@@ -34,10 +47,17 @@ class JobsList extends Component {
 }
 
 const mapStateToProps = (state) =>{
- 
+   
     return{
-    jobs: state.jobs.jobs
+    jobs: state.jobs.jobs,
+    isOverlayActive: state.isOverlayActive.isOverlayActive
   }
 }
 
-export default connect(mapStateToProps,{fetchJobs})(JobsList);
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    fetchJobs: () => dispatch(fetchJobs())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(JobsList);

@@ -1,13 +1,10 @@
 
 const useDarkMode = () => {
 
-
     const activeDarkModeBackground = (element) =>{
        
-        element.current.classList.toggle("blackBG");
-        //console.log("from the active")
-       // console.log(element);
-       
+         if(!element.current.classList.contains("blackBG"))
+            element.current.classList.add("blackBG");   
     }
 
     const removeDarkModeBackground = (element) =>{
@@ -16,10 +13,13 @@ const useDarkMode = () => {
            return;
         }
        
-         element.current.classList.toggle("blackBG");
-         //console.log("from the remove") 
+        if(element.current.classList.contains("blackBG"))
+        {
+           element.current.classList.remove("blackBG");
+           return;
+        }
+        
     }
-
 
     return [activeDarkModeBackground,removeDarkModeBackground];
 }

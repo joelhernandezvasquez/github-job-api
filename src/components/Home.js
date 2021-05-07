@@ -7,6 +7,8 @@ import "../sass/main.scss";
 class Home extends Component {
     render() {
         return (
+            
+            
             <div className="home">
               
                <section className="search-filter-container">
