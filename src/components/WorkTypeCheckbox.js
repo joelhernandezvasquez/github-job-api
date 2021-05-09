@@ -28,10 +28,10 @@ const WorkTypeCheckbox = () => {
       </svg>
                </span>
                </span>
-               <span class="radio__label">Full Time</span>
+               <span class="radio__label">Full Time Only</span>
             </label> 
 
-           <SearchJobResults/>
+          
         </div>
     )
 }

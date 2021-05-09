@@ -6,7 +6,7 @@ import '../sass/utilities.scss';
 const Error = ({activeOverlay}) => {
     
     return (
-        <div className="error-message message-container">
+        <div className="error-message message-container message-box">
             
             <div className="message-header">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>

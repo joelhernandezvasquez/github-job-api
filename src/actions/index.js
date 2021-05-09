@@ -13,6 +13,12 @@ export const activeDarkMode = () =>{
     }
 } 
 
+export const activeMobileSearchModal = () =>{
+    return {
+        type:'ACTIVE_MOBILE_SEARCH_MODAL'
+    }
+}
+
 export const fetchJobs = () =>{
   
     return async (dispatch) =>{
@@ -35,3 +41,30 @@ export const fetchJobsByTitle = (term) =>
             dispatch({type:'ACTIVE_OVERLAY'})
     }   
 }
+
+export const fetchingJobs = (data) =>{
+ 
+    const [term,location,isFullTime] = data;
+    
+     return async (dispatch) =>{
+         const response = await axios.get('https://cors.bridged.cc/https://jobs.github.com/positions.json',{
+             params:{
+                 description: term,
+                 full_time:isFullTime,
+                 location:location
+             }
+         })
+
+         console.log(response.data);
+         
+        if(response.data.length > 0)
+          dispatch({type:"FETCHING_JOBS", payload:response.data})
+          
+          else
+          dispatch({type:'ACTIVE_OVERLAY'});
+     }
+
+  
+}
+
+

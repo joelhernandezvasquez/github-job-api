@@ -15,6 +15,11 @@ const FetchJobsReducer = (state =initialState,action) =>
          ...state,
          jobs:action.payload
        }
+
+       case 'FETCHING_JOBS':return{
+         ...state,
+         jobs:action.payload
+       }
         
        
 

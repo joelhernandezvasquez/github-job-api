@@ -81,6 +81,14 @@ $top-spacing:2rem;
     
 }
 
+.line{
+    width: 100%;
+    height: 1px;
+   background:$darkGrey;
+   mix-blend-mode: normal;
+   opacity: 0.2; 
+}
+
 .inner-spacing{
     padding:0 1rem 0 1.5rem;
    display: flex;
@@ -120,20 +128,28 @@ $top-spacing:2rem;
        
 
    }
+   .blackBG.overlay{
+       background:$lightViolet;
+   }
 
- 
+   .message-box{
+    background:$pureWhite;
+    border-radius:6px;
+    position:relative;
+    transform: translateY(350px);
+    z-index:10; 
+    animation: 0.7s warning-message forwards; 
+   
+   }
+
+   
 
    .error-message{
-       background:$pureWhite;
-       border-radius:6px;
-       position:relative;
-       transform: translateY(350px);
-       z-index:10;
-       padding:1.5rem 2rem;
+      
        display: flex;
        flex-direction: column;
+       padding:1.5rem 2rem;
        gap:1.4rem;
-       animation: 0.7s warning-message forwards; 
       
        .message-header{
         display:flex;
@@ -161,6 +177,24 @@ $top-spacing:2rem;
            width: 100%;
        }
 
+   }
+
+   .mobile-filter-search{
+    
+    padding:0.5rem 1rem;
+     >*{
+         margin: 20px 0;
+     }
+
+
+     button{
+         width: 100%;
+         
+     }
+   }
+
+   .blackBG.mobile-filter-search{
+     background:red;
    }
    .message-container{
      max-width: 88%; 

@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Job from './Job';
 import Overlay from './Overlay';
-import Error from './Error';
 import {fetchJobs} from '../actions';
 import '../sass/colors.scss';
 import '../sass/components/jobs.scss';
 
 class JobsList extends Component {
    
-   
+  state={
+    numberOfRender:12
+  } 
+
     componentDidMount = () =>  { 
      this.props.fetchJobs();
      
@@ -18,7 +20,7 @@ class JobsList extends Component {
    renderJobList = () =>{
      
  
-      const jobsList = this.props.jobs.filter((job,index) => index < 12);
+      const jobsList = this.props.jobs.filter((job,index) => index < this.state.numberOfRender);
         return (
           jobsList.map(job =>{
             return <Job dataJob={job}/>
@@ -27,18 +29,24 @@ class JobsList extends Component {
           
 
       }
+      handleMore = () =>{
+        console.log(this.state.numberOfRender)
+        this.setState({numberOfRender: this.state.numberOfRender + 6})
+        console.log(this.state.numberOfRender)
+      }
+     
 
     render() {
      
         return (
             <div className="job-list">
                <div className="container">
-              {this.props.isOverlayActive? <Overlay childComponent={<Error/>}/>: this.renderJobList()} 
+              {this.props.isOverlayActive? <Overlay/> : this.renderJobList()}
               
                </div>
 
                <section className="load-more-container">
-                  <button className=" btn default-btn"> Load More</button>
+                  <button className=" btn default-btn" onClick ={this.handleMore}> Load More</button>
                </section>
 
             </div>
@@ -47,7 +55,7 @@ class JobsList extends Component {
 }
 
 const mapStateToProps = (state) =>{
-   
+   console.log(state.jobs);
     return{
     jobs: state.jobs.jobs,
     isOverlayActive: state.isOverlayActive.isOverlayActive

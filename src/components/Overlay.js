@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import Error from './Error';
 import UseDimension from './hooks/useDimension';
-import Error from './/Error';
 import '../sass/utilities.scss';
 
- const Overlay = ({childComponent}) => {
+ const Overlay = () => {
 
     const viewport = UseDimension();
-
+   
     const getStyle = () =>{
        return{
            height:viewport.height
@@ -15,8 +15,8 @@ import '../sass/utilities.scss';
     
         return (
           
-           <div className="overlay" style={getStyle()}> 
-             {childComponent}
+           <div className="overlay" style={getStyle() }> 
+            <Error/>
            </div>
         )
     
