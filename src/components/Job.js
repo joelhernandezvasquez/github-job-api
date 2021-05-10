@@ -1,28 +1,49 @@
-import React,{useRef} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import useDarkMode from './hooks/useDarkMode';
 
 const Job = ({dataJob,isDarkModeActive}) => {
    
     const{company_logo,created_at,type,title,company,location} = dataJob;
-    const [activeDarkModeBackground,removeDarkModeBackground] = useDarkMode();
-    const jobCardRef = useRef();
+    const [changeBackgroundDarkMode,changeFontDarkMode] = useDarkMode();
 
-    const styleLogoContainer = (image) =>{
-  
-        return{
-            width:'50px',
-            height: '50px',
-            borderRadius: '15px',
-            border:'1px solid red',
-            backgroundImage:`url('${image}')`,
-            backgroundSize:'cover',
-           backgroundRepeat:'no-repeat'
+
+     const getTimePassed = (createdTime) =>
+     {
+         const ONE_DAY = 86400000;
+         const today = new Date();
+         const dayCreated = new Date(createdTime);
+
+         const dateTimePassed = Math.round((today - dayCreated) / ONE_DAY);
+
+         return( dateTimePassed!=0? getDaysPassedToString(dateTimePassed): getTimePassedToString(today - dayCreated));
+     }
+
+     const getTimePassedToString = (timePassed) =>{
+       
+        return timePassed >= 3600000? `${Math.trunc(timePassed/3600000)} h ago`: `${Math.trunc((timePassed/1000) / 60)} min ago`
+     }
+
+     const getDaysPassedToString = (dateTimePassed) =>{
+       
+        
+        if(dateTimePassed > 0 && dateTimePassed < 7) // days
+        {
+           return `${dateTimePassed}d ago`;
         }
-    }
-   
+
+        if(dateTimePassed >= 7 & dateTimePassed <=30 ) // weeks
+        {
+          return `${Math.trunc(dateTimePassed / 7)}w ago`;
+        } 
+
+        return `${Math.trunc(dateTimePassed / 30)}mo ago`;
+
+
+     }
+
     return (
-        <div ref={jobCardRef} className={`job-card  ${isDarkModeActive? activeDarkModeBackground(jobCardRef): removeDarkModeBackground(jobCardRef)}`}>
+        <div  className="job-card" style={changeBackgroundDarkMode(isDarkModeActive)}>
           
             <div className="logo-container">
               <img src={company_logo} alt="logo"/> 
@@ -30,14 +51,14 @@ const Job = ({dataJob,isDarkModeActive}) => {
 
             <div className="job-info-container">
             <div className="job-details">
-                 {/* <span>{created_at}</span> */}
+               
                  <div className="job-details-header">
-                    <span>5h ago</span>
+                    <span> {getTimePassed(created_at)}</span>
                     <div className="circle"> </div>
                     <span>{type}</span>
                  </div>
                 
-                <h1>{title}</h1>
+                <h1 style={changeFontDarkMode(isDarkModeActive)}> {title}</h1>
                 <h2>{company}</h2>
                 <p>{location}</p> 
             </div>

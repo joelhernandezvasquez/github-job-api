@@ -30,9 +30,14 @@ class JobsList extends Component {
 
       }
       handleMore = () =>{
-        console.log(this.state.numberOfRender)
-        this.setState({numberOfRender: this.state.numberOfRender + 6})
-        console.log(this.state.numberOfRender)
+        
+
+        if(this.state.numberOfRender <=50)
+         {
+          this.setState({numberOfRender: this.state.numberOfRender + 6})
+          
+         }
+           
       }
      
 

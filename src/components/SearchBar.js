@@ -1,4 +1,4 @@
-import React, {useRef,useState } from 'react';
+import React, {useState } from 'react';
 import {connect} from 'react-redux';
 import {fetchJobsByTitle,activeMobileSearchModal} from '../actions/index';
 import IconFilter from '../assets/mobile/icon-filter.svg';
@@ -12,10 +12,7 @@ import MobileFilterSearch from './MobileFilterSearch';
 
 const SearchBar = ({viewVersion,isDarkModeActive,isMobileSearchOpen,fetchJobsByTitle,activeMobileSearchModal}) => {
    
-    const refContainer = useRef();
-    const refSearchBarContainer = useRef();
-    const inputRef = useRef();
-    const [activeDarkModeBackground,removeDarkModeBackground] = useDarkMode();
+    const [changeBackgroundDarkMode] = useDarkMode();
     const [searchTerm,setSearchTerm] = useState("");
   
   const onHandleSearch = () =>{
@@ -27,15 +24,14 @@ const SearchBar = ({viewVersion,isDarkModeActive,isMobileSearchOpen,fetchJobsByT
    
     return(
         
-
-        <div ref={refSearchBarContainer} className={`search-bar-container  ${isDarkModeActive? activeDarkModeBackground(refSearchBarContainer): removeDarkModeBackground(refSearchBarContainer)}`}>
-        <div ref={refContainer} className={`container ${isDarkModeActive? activeDarkModeBackground(refContainer): removeDarkModeBackground(refContainer)}`} > 
+        <div className={`search-bar-container ${isDarkModeActive? 'blackBG':''}`}>
+        <div className= "container" style={changeBackgroundDarkMode(isDarkModeActive)}> 
          
         <input 
-        ref={inputRef} 
-        className={`main-input ${isDarkModeActive? activeDarkModeBackground(inputRef): removeDarkModeBackground(inputRef)}`} 
+        
+        className={`main-input ${isDarkModeActive? 'blackBG':''}`} 
         type="text" 
-        placeholder ="Filter by title..."
+        placeholder = "Filter by title..."
         value = {searchTerm}
         onChange = {(e)=> setSearchTerm(e.target.value)} 
         />

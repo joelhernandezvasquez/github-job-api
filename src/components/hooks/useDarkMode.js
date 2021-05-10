@@ -1,32 +1,39 @@
 
+
 const useDarkMode = () => {
 
-    const activeDarkModeBackground = (element) =>{
-       
-      //console.log(element.current);
-         if(!element.current.classList.contains("blackBG"))
-            element.current.classList.add("blackBG");   
-    }
+  const changeBackgroundDarkMode = (isDarkModeActive) =>{
+   
+    if(isDarkModeActive)
+      return{
+          background:'#19202D',
+          borderRadius:'6px',
+          color:'#ffffff'
+          
+      }
+  
+  }
 
-    const removeDarkModeBackground = (element) =>{
-        
-      
-      if(element.current === undefined)
-        { 
-         // console.log(element.current);
-         return;
+  const changeFontDarkMode = (isDarkModeActive) =>{
+      if(isDarkModeActive)
+      return{
+        color:'#ffffff'
+      }
+  }
 
-        }
-       
-        if(element.current.classList.contains("blackBG"))
-        {
-           element.current.classList.remove("blackBG");
-           return;
-        }
-        
-    }
+ 
 
-    return [activeDarkModeBackground,removeDarkModeBackground];
+  const getWhiteBG = (isDarkModeActive) =>{
+    if(isDarkModeActive)
+      return{
+        background:'#ffffff'
+      }
+  }
+
+  
+    return[changeBackgroundDarkMode,changeFontDarkMode,getWhiteBG];
 }
+
+
 
 export default useDarkMode;

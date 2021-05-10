@@ -49,8 +49,8 @@
                 .job-details-header{
                    display: flex;
                    align-items: center;
-                   width:140px;
-                   justify-content: space-between;
+                   gap:0.5rem;
+                
                  span{
                      font-size: $bodyText;
                      color:$darkGrey;

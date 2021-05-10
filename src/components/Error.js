@@ -1,25 +1,49 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {activeOverlay} from '../actions';
+import {activeOverlay,activeDarkMode} from '../actions';
 import '../sass/utilities.scss';
 
-const Error = ({activeOverlay}) => {
+
+const Error = ({activeOverlay,isDarkModeActive}) => {
     
+   const getBackground = () =>{
+      
+     if(isDarkModeActive)
+     {
+         return{
+             background:'#19202D',  
+         }
+     }
+   }
+
+   const getfont = () =>{
+      
+    if(isDarkModeActive)
+    {
+        return{
+            color:'#ffffff',  
+        }
+    }
+  }
+
+
     return (
-        <div className="error-message message-container message-box">
+        <div className="error-message message-container message-box" style={getBackground()}>
             
             <div className="message-header">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                 <h2> No Jobs Found</h2>
+                 <h2 style={getfont()}> No Jobs Found</h2>
             </div>
-            <p>Please search again....</p>
+            <p style={getfont()}>Please search again....</p>
             <button className="btn default-btn" onClick={()=> activeOverlay() }> Close</button>
         </div>
     )
 }
 const mapStateToProps = (state) =>{
-   
-    return{}
+    console.log(state.isDarkModeActive)
+    return{
+        isDarkModeActive: state.isDarkModeActive.isDarkModeActive
+    }
 }
 
 const mapDispatchToProps = (dispatch) =>{

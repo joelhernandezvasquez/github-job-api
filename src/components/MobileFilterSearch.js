@@ -1,4 +1,4 @@
-import {useState,useRef } from 'react';
+import {useState,useRef,useEffect } from 'react';
 import {connect} from 'react-redux';
 import UseDimension from './hooks/useDimension';
 import useDarkMode from './hooks/useDarkMode';
@@ -14,15 +14,28 @@ const MobileFilterSearch = ({activeMobileSearchModal,fetchingJobs,term,setTerm,i
     const [location,setLocation] = useState("");
     const [isFullTime,setIsFullTime] = useState(false);
     const viewport = UseDimension();
-    const [activeDarkModeBackground,removeDarkModeBackground] = useDarkMode();
-    const mobileSearchContainer = useRef();
-    const overlayRef = useRef();
+    const [changeBackgroundDarkMode,changeFontDarkMode,getWhiteBG] = useDarkMode();
+   
+
+    useEffect(() => {
+        document.querySelector(".overlay").addEventListener("click",(event) =>{
+        
+        
+          if(event.target.classList.contains("overlay"))
+          {
+            
+            activeMobileSearchModal(); 
+          }
+       
+     })
+  }, [])
     const getStyle = () =>{
        return{
            height:viewport.height
        }
     }
 
+    
      const onHandleSearch = () =>{
 
         fetchingJobs([term,location,isFullTime]);
@@ -32,17 +45,18 @@ const MobileFilterSearch = ({activeMobileSearchModal,fetchingJobs,term,setTerm,i
      }
         return (
             
-            <div ref={overlayRef} className={`overlay `} style={getStyle()}>
-                <div ref={mobileSearchContainer} className={`mobile-filter-search message-container message-box`}>
-                {/* <div ref={mobileSearchContainer} className={`mobile-filter-search message-container message-box ${isDarkModeActive? activeDarkModeBackground(mobileSearchContainer): removeDarkModeBackground(mobileSearchContainer)}`}> */}
+            <div className="overlay" style={getStyle()}>
+                <div className="mobile-filter-search message-container message-box" style={changeBackgroundDarkMode(isDarkModeActive)} >
                 
                 <div className="filter-location-container inner-spacing">
                     <img src={IconLocation} alt="icon location"/>
                     <input type="text" 
-                     className="main-input"
-                     placeholder ="Filter by location..."
+                     className={`main-input ${isDarkModeActive? 'blackBG': ''}`}
+                    
+                     placeholder ="Filter by location..." 
                      value={location}
                      onChange={(e)=> setLocation(e.target.value)}
+                     
                     />
                 </div>
 
@@ -51,8 +65,8 @@ const MobileFilterSearch = ({activeMobileSearchModal,fetchingJobs,term,setTerm,i
                 <div className="checkbox-container inner-spacing">
                     <label className="checkbox">
                         <span class="checkbox__input">
-                        <input type="checkbox" name="checkbox" onChange={(e)=>setIsFullTime(!isFullTime)} />
-                        <span className="checkbox__control">
+                        <input type="checkbox" name="checkbox"  onChange={(e)=>setIsFullTime(!isFullTime)} />
+                        <span className="checkbox__control" style={getWhiteBG(isDarkModeActive)}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
@@ -69,7 +83,7 @@ const MobileFilterSearch = ({activeMobileSearchModal,fetchingJobs,term,setTerm,i
                                 </svg>
                             </span>
                         </span>
-                        <span class="radio__label">Full Time Only</span>
+                        <span class="radio__label" style={changeFontDarkMode(isDarkModeActive)}>Full Time Only </span>
                 </label> 
 
           </div>
