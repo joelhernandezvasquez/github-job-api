@@ -6,6 +6,31 @@ export const activeOverlay = () =>{
       type:'ACTIVE_OVERLAY'
   }
 }
+
+export const setSearchTerm = (term) =>{
+    return{
+        type:'SET_SEARCH_TERM',
+        payload:term
+    }
+}
+
+export const setLocation = (term) =>{
+    return{
+        type:'SET_LOCATION',
+        payload:term
+    }
+}
+
+export const setFullTimeJob = () =>{
+    return{
+        type:'SET_FULL_TIME_JOB',
+       
+    }
+}
+
+
+
+
 export const activeDarkMode = () =>{
   
     return {

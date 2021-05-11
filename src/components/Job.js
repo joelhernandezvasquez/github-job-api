@@ -21,7 +21,7 @@ const Job = ({dataJob,isDarkModeActive}) => {
 
      const getTimePassedToString = (timePassed) =>{
        
-        return timePassed >= 3600000? `${Math.trunc(timePassed/3600000)} h ago`: `${Math.trunc((timePassed/1000) / 60)} min ago`
+        return timePassed >= 3600000? `${Math.trunc(timePassed/3600000)}h ago`: `${Math.trunc((timePassed/1000) / 60)}min ago`
      }
 
      const getDaysPassedToString = (dateTimePassed) =>{

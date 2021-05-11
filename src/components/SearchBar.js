@@ -1,6 +1,6 @@
-import React, {useState } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import {fetchJobsByTitle,activeMobileSearchModal} from '../actions/index';
+import {fetchJobsByTitle,activeMobileSearchModal,setSearchTerm} from '../actions/index';
 import IconFilter from '../assets/mobile/icon-filter.svg';
 import IconFilterPath from '../assets/mobile/Path.svg';
 import IconSearch from '../assets/mobile/search.svg';
@@ -10,10 +10,9 @@ import '../sass/components/searchBar.scss';
 import useDarkMode from './hooks/useDarkMode';
 import MobileFilterSearch from './MobileFilterSearch';
 
-const SearchBar = ({viewVersion,isDarkModeActive,isMobileSearchOpen,fetchJobsByTitle,activeMobileSearchModal}) => {
+const SearchBar = ({viewVersion,isDarkModeActive,isMobileSearchOpen,fetchJobsByTitle,activeMobileSearchModal,searchTerm,setSearchTerm}) => {
    
     const [changeBackgroundDarkMode] = useDarkMode();
-    const [searchTerm,setSearchTerm] = useState("");
   
   const onHandleSearch = () =>{
       fetchJobsByTitle(searchTerm)
@@ -45,7 +44,7 @@ const SearchBar = ({viewVersion,isDarkModeActive,isMobileSearchOpen,fetchJobsByT
              <img src={IconSearch} alt="icon search"/>
          </div>
         </div>
-        {isMobileSearchOpen? <MobileFilterSearch term = {searchTerm} setTerm = {setSearchTerm}/>: " "}
+        {isMobileSearchOpen? <MobileFilterSearch/>: " "}
      </div>
 
      
@@ -54,10 +53,16 @@ const SearchBar = ({viewVersion,isDarkModeActive,isMobileSearchOpen,fetchJobsByT
 
   const renderFullScreenSearchVersion = () =>{
       return(
-          <div className="search-bar-fullScreen-container inner-spacing">
+          <div className={`search-bar-fullScreen-container inner-spacing ${isDarkModeActive? 'blackBG': ''}`}>
              
                 <img src={IconSearchDesktop} alt="search icon"/>
-                <input type="text"  className="main-input" placeholder ="Filter by title..."/>   
+                <input
+                 type="text" 
+                 className={`main-input ${isDarkModeActive? 'blackBG': ''}`}
+                  placeholder ="Filter by title..."  
+                   value = {searchTerm}
+                     onChange = {(e)=> setSearchTerm(e.target.value)}  
+                     />
           </div>
       )
   }   
@@ -73,14 +78,16 @@ const mapStateToProps = (state) =>{
 
     return{
         isDarkModeActive: state.isDarkModeActive.isDarkModeActive,
-        isMobileSearchOpen: state.isMobileSearchOpen.isMobileSearchOpen
+        isMobileSearchOpen: state.isMobileSearchOpen.isMobileSearchOpen,
+        searchTerm: state.searchTerm.searchTerm
     }
 }
 
 const mapDispatchToProps = (dispatch) =>{
     return{
       fetchJobsByTitle: (event) => dispatch(fetchJobsByTitle(event)),
-      activeMobileSearchModal: () => dispatch(activeMobileSearchModal())
+      activeMobileSearchModal: () => dispatch(activeMobileSearchModal()),
+      setSearchTerm: (event) => dispatch(setSearchTerm(event))
     }
   }
   

@@ -6,9 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-basis: 320px;
- 
-    //border: 1px solid black;
+    
 }
 
 
@@ -41,6 +39,9 @@
       }
       
    
+  }
+  .blackBG.checkbox__control{
+    background:$pureWhite;
   }
 
   .checkbox__input {

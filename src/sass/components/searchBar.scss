@@ -46,8 +46,7 @@
 }
 
 .search-bar-fullScreen-container{
-  
-     
+   
    input{
         width:80%;
       }
@@ -60,6 +59,11 @@
             width:100%;
           }
       }
+   }
+   .blackBG.search-bar-fullScreen-container{
+      background:$darkBlue;
+      border-radius: 6px;
+
    }
     
      
