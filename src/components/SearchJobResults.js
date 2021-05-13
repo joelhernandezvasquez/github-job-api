@@ -11,11 +11,11 @@ const SearchJobResults = ({viewportWidth,activeMobileSearchModal,searchTerm,setS
             setSearchTerm(""); 
             setLocation("");
             setFullTimeJob();
+            document.querySelector(".ch").checked = false;
             
             if(viewportWidth < 768)
             {
-                activeMobileSearchModal();
-               
+                activeMobileSearchModal();  
             }
     }
     return (

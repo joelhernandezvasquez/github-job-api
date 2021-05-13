@@ -30,7 +30,7 @@ const SearchFilterContainer = ({isDarkModeActive})  =>{
           <FilterLocation/>
           <div className="borderLine"></div>
           <div className="search-section">
-            <WorkTypeCheckbox typeJob={"Full Time"}/>
+            <WorkTypeCheckbox />
             <SearchJobResults viewportWidth={viewportDimension.width}/>
           </div>
       

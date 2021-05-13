@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import useDarkMode from './hooks/useDarkMode';
+import '../sass/utilities.scss';
 
 const Job = ({dataJob,isDarkModeActive}) => {
    
     const{company_logo,created_at,type,title,company,location} = dataJob;
     const [changeBackgroundDarkMode,changeFontDarkMode] = useDarkMode();
 
-
+    
      const getTimePassed = (createdTime) =>
      {
          const ONE_DAY = 86400000;
@@ -41,9 +42,11 @@ const Job = ({dataJob,isDarkModeActive}) => {
 
 
      }
-
+   
     return (
-        <div  className="job-card" style={changeBackgroundDarkMode(isDarkModeActive)}>
+       
+      
+       <div  className="job-card" style={changeBackgroundDarkMode(isDarkModeActive)}>
           
             <div className="logo-container">
               <img src={company_logo} alt="logo"/> 

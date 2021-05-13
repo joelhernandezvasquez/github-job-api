@@ -2,19 +2,34 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {setFullTimeJob} from '../actions/index';
 import useDarkMode from './hooks/useDarkMode';
+import useDimension from './hooks/useDimension';
 import '../sass/utilities.scss';
 import '../sass/components/customCheckbox.scss';
 
 
-const WorkTypeCheckbox = ({typeJob,isDarkModeActive,setFullTimeJob}) => {
+const WorkTypeCheckbox = ({isDarkModeActive,setFullTimeJob}) => {
 
     const [changeFontDarkMode] = useDarkMode();
+    const viewport = useDimension();
+
+
+    
+     const getLabelFullTime = () =>{
+
+        if(viewport.width < 768 || viewport.width >=1440)
+        {
+            return "Full Time Only";
+        }
+        else{
+            return "Full Time";
+        }
+     }
 
     return (
         <div className="checkbox-container inner-spacing">
         <label className="checkbox">
             <span class="checkbox__input">
-             <input type="checkbox" name="checkbox"
+             <input type="checkbox" name="checkbox" className="ch"
               onChange={(e)=> setFullTimeJob()}
               
              />
@@ -35,7 +50,7 @@ const WorkTypeCheckbox = ({typeJob,isDarkModeActive,setFullTimeJob}) => {
       </svg>
                </span>
                </span>
-               <span class="radio__label" style={changeFontDarkMode(isDarkModeActive)}> {typeJob}</span>
+               <span class="radio__label" style={changeFontDarkMode(isDarkModeActive)}>{getLabelFullTime()} </span>
             </label> 
 
           

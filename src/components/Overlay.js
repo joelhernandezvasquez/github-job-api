@@ -12,8 +12,8 @@ import '../sass/utilities.scss';
 
 
     useEffect(() => {
-          document.querySelector(".overlay").addEventListener("click",(event) =>{
-          
+         
+      document.querySelector(".overlay").addEventListener("click",(event) =>{
           
             if(event.target.classList.contains("overlay"))
             {

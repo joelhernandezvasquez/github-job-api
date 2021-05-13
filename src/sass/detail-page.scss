@@ -1,0 +1,133 @@
+
+@import './colors.scss';
+@import './fonts.scss';
+
+.detail-page-wrapper{
+
+    position:relative;
+    
+    .container-detail{
+       position:absolute; 
+       top:-25px;
+       width:100%;
+       margin:auto;
+    }
+
+    .header{
+       
+        background:$pureWhite;
+        height: 205px;
+        border-radius: 6px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        padding:0 1rem;
+       
+        .logo-container{
+            position:relative;
+        }
+
+        .header-details{
+            
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0.5rem;
+            
+            h2{
+                text-align: center;
+                font-weight: 700;
+                color:$darkBlue;
+                font-size: $ternaryHeading;
+            }
+            a{
+                display:inline-block;
+                margin-top:1.5rem;
+            }
+        }
+    }
+
+    .job-details-container{
+        background:$pureWhite;
+        border-radius: 6px;
+        padding:2rem;
+      
+       
+        
+        .job-header-container{
+            //border:1px solid black;
+
+            .job-header-info{
+                .info{
+                    display:flex;
+                    align-items: center;
+                    gap:0.5rem;
+                    span{
+                        font-size: $bodyText;
+                        color:$darkGrey;
+                        font-weight: 300;
+                        line-height: 16px;
+                        
+                        
+                    }
+                }
+                h1{
+                    font-size: $ternaryHeading;
+                    color:$darkBlue;
+                    font-weight: 700;
+                    margin-top:8px;
+                }
+                p{
+                    color:$violet;
+                    font-size:$smallHeading;
+                    font-weight: 700;
+                    line-height: 1.1rem;
+                    margin-top: 12px;
+                }
+            }
+
+            a{
+                display:inline-block;
+                width: 100%;
+                margin-top:2rem;
+            }
+        }
+
+        .job-description-container{
+             
+            margin-top: 2rem;
+
+            p{
+                font-weight: 300;
+                color:$darkGrey;
+                line-height: 26px;
+                margin:1.5rem 0;
+            }
+            p > strong
+            
+           {
+               color:$darkBlue;
+               font-weight: 700;
+               font-size: $ternaryHeading;
+               line-height: 20px;
+           }
+           :is(ul,ol)
+           {
+               color:$darkGrey;
+               font-weight: 300;
+              
+           }
+           ul li,ol li{
+               margin:0.5rem 0;
+               line-height: 26px;
+           }
+
+           ul li::marker{
+               color:$violet;
+              
+           }
+
+          
+        }
+    }
+}

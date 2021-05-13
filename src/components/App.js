@@ -19,9 +19,10 @@ const App = () => {
                  <Home/>
               </Route>
 
-              <Route exact path="/detail">
-                <DetailPage/>
-              </Route>
+              <Route path='/detail'  
+              render={(props)=>(
+                <DetailPage{...props}  />
+              )}/>
            
            </Switch>
         </div>

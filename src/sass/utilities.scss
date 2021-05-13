@@ -9,6 +9,10 @@ $top-spacing:2rem;
    
 }
 
+.top-spacing{
+    margin-top:1.5rem;
+}
+
 .btn{
     padding:1rem 2rem;
     font-family: 'Kumbh Sans', sans-serif;
@@ -17,6 +21,7 @@ $top-spacing:2rem;
     border:none;
     border-radius: 5px;
     outline: transparent;
+    text-align: center;
     cursor:pointer;
 
     @media(min-width:768px)
@@ -28,9 +33,6 @@ $top-spacing:2rem;
         padding: 1rem 2rem;
     }
 
-    
-
-
 }
 
 .default-btn{
@@ -41,6 +43,20 @@ $top-spacing:2rem;
     &:hover{
      background:$lightViolet;
    }
+}
+
+.secondary-default-btn{
+    background:rgba($violet,0.1);
+    mix-blend-mode: normal;
+    color:$violet;
+    transition:background 0.3s ease-in-out;
+
+    &:hover{
+        background: $violet;
+        mix-blend-mode: normal;
+        opacity: 0.35;
+        border-radius: 5px;
+    }
 }
 
 .main-input{
@@ -125,6 +141,7 @@ $top-spacing:2rem;
             left:0;
             opacity:0.5;
         }
+
        
 
    }
@@ -150,6 +167,9 @@ $top-spacing:2rem;
        flex-direction: column;
        padding:1.5rem 2rem;
        gap:1.4rem;
+      align-items: center;
+     
+     
       
        .message-header{
         display:flex;
@@ -163,21 +183,30 @@ $top-spacing:2rem;
              margin-left: 1rem;
            
          }
+
+        
        }
 
-       p{
-           font-size: 1.1rem;
-        color: $darkBlue;
-            mix-blend-mode: normal;
-            opacity: 0.5;
-            align-self: center;
+       
+        p{
+            font-size: 1.1rem;
+             color: $darkBlue;
+             mix-blend-mode: normal;
+             opacity: 0.5;
             
-       }
-       button{
-           width: 100%;
+        }
+         button{
+             width: 100%;
+         }
+       
        }
 
-   }
+      
+      
+
+       
+      
+   
 
    .mobile-filter-search{
     
@@ -197,9 +226,46 @@ $top-spacing:2rem;
    .message-container{
      max-width: 88%; 
      margin:0 auto;
+
+     @media(min-width: 768px)
+     {
+         width:400px;
+
+     }
    }
 
- 
+   
+           .logo-container{
+               width: 50px;
+               height: 50px;
+               border-radius: 15px;
+               background-color:$pureWhite;
+               box-shadow: 2px 4px 10px 0px rgba(0,0,0,0.3);
+               display:flex;
+               align-items: center;
+               justify-content: center;
+               padding:5px;
+               position:absolute;
+               top:-25px;
+
+               img{
+               width:100%;
+                
+               } 
+           }
+
+           .circle{
+            width:4px;
+            height:4px;
+            border-radius: 50%;
+            background:$darkGrey;
+           
+        }
+
+   
+ .paragraph{
+     color:red;
+ }
 
    @keyframes warning-message {
     0%{

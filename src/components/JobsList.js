@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Job from './Job';
 import Overlay from './Overlay';
 import {fetchJobs} from '../actions';
+import{Link} from 'react-router-dom';
 import '../sass/colors.scss';
 import '../sass/components/jobs.scss';
 
@@ -19,11 +20,22 @@ class JobsList extends Component {
 
    renderJobList = () =>{
      
- 
       const jobsList = this.props.jobs.filter((job,index) => index < this.state.numberOfRender);
         return (
           jobsList.map(job =>{
-            return <Job dataJob={job}/>
+            
+            return(
+              
+              <Link to={{
+                pathname:'/detail',
+                jobInfo:{
+                    dataJob:job
+                   
+                }
+            }}>
+              <Job key={job.id} dataJob={job}/>
+              </Link>
+            )
           })
         )
           
@@ -42,12 +54,11 @@ class JobsList extends Component {
      
 
     render() {
-     
+      const jobsList = this.props.jobs.filter((job,index) => index < this.state.numberOfRender);
         return (
             <div className="job-list">
                <div className="container">
-              {this.props.isOverlayActive? <Overlay/> : this.renderJobList()}
-              
+               {this.props.isOverlayActive? <Overlay/> : this.renderJobList()} 
                </div>
 
                <section className="load-more-container">
