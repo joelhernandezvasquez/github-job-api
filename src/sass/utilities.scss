@@ -28,11 +28,7 @@ $top-spacing:2rem;
     {
         padding: 1rem;
     }
-    @media(min-width:1200px)
-    {
-        padding: 1rem 2rem;
-    }
-
+  
 }
 
 .default-btn{
@@ -52,10 +48,23 @@ $top-spacing:2rem;
     transition:background 0.3s ease-in-out;
 
     &:hover{
-        background: $violet;
+        background: rgba($violet,0.35);
         mix-blend-mode: normal;
-        opacity: 0.35;
-        border-radius: 5px;
+
+    }
+}
+
+.ternary-default-btn{
+    background:rgba($pureWhite,0.1);
+    mix-blend-mode: normal;
+    font-weight: 700;
+    color:$pureWhite;
+    transition:background 0.3s ease-in-out;
+  
+
+
+    &:hover{
+        background:rgba($pureWhite,0.25);
     }
 }
 
@@ -202,11 +211,7 @@ $top-spacing:2rem;
        }
 
       
-      
-
-       
-      
-   
+    
 
    .mobile-filter-search{
     

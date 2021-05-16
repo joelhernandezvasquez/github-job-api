@@ -1,0 +1,47 @@
+.toogle-container {
+  color: white;
+  width: 112px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.toogle-container .toggle-btn-container {
+  width: 48px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.toogle-container .toggle-btn-container .toggle-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #5964E0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.toogle-container .toggle-btn-container .toggle-btn:hover {
+  background: #939BF4;
+}
+
+.toogle-container .toggle-btn-container .move.toggle-btn {
+  -webkit-transform: translateX(150%);
+          transform: translateX(150%);
+}
+/*# sourceMappingURL=toggle.css.map */

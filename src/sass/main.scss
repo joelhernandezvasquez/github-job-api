@@ -38,6 +38,7 @@ body{
    position:absolute;
    width:100%;
    top:-42px;
+   border-radius: 6px;
   
     .container{
        
@@ -45,6 +46,7 @@ body{
         background:$pureWhite;
         height:80px;
         border-radius: 6px; 
+        
     }
 
     @media(min-width: 768px)
@@ -63,6 +65,7 @@ body{
         }
         .blackBG.container{
             background:$darkBlue;
+            //border-radius: 6px;
         }
     }
 

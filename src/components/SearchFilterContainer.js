@@ -38,7 +38,7 @@ const SearchFilterContainer = ({isDarkModeActive})  =>{
     )
 }
   return (      
-    <div>
+    <div id="searcher">
           
           {viewportDimension.width < 768? renderMobileSearchVersion(): renderFullSearchVersion()}
        
