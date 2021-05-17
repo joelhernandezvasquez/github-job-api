@@ -4,7 +4,6 @@ import{BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import Home from './Home';
 import DetailPage from './DetailPage';
 import Header from './Header';
-import Overlay from './Overlay';
 import "../sass/main.scss";
 
 const App = () => {

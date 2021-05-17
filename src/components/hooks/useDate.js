@@ -10,7 +10,7 @@ const useDate = () => {
 
          const dateTimePassed = Math.round((today - dayCreated) / ONE_DAY);
 
-         return( dateTimePassed!=0? getDaysPassedToString(dateTimePassed): getTimePassedToString(today - dayCreated));
+         return( dateTimePassed!==0? getDaysPassedToString(dateTimePassed): getTimePassedToString(today - dayCreated));
      }
      
      const getTimePassedToString = (timePassed) =>{

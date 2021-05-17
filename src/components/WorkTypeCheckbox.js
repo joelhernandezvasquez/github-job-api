@@ -28,7 +28,7 @@ const WorkTypeCheckbox = ({isDarkModeActive,setFullTimeJob}) => {
     return (
         <div className="checkbox-container inner-spacing">
         <label className="checkbox">
-            <span class="checkbox__input">
+            <span className="checkbox__input">
              <input type="checkbox" name="checkbox" className="ch"
               onChange={(e)=> setFullTimeJob()}
               
@@ -42,15 +42,15 @@ const WorkTypeCheckbox = ({isDarkModeActive,setFullTimeJob}) => {
                 >
                     <path
                     fill="none"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     stroke="#FFF"
-                    stroke-width="2"
+                    strokeWidth="2"
                     d="M1.73 12.91l6.37 6.37L22.79 4.59"
                     />
       </svg>
                </span>
                </span>
-               <span class="radio__label" style={changeFontDarkMode(isDarkModeActive)}>{getLabelFullTime()} </span>
+               <span className="radio__label" style={changeFontDarkMode(isDarkModeActive)}>{getLabelFullTime()} </span>
             </label> 
 
           

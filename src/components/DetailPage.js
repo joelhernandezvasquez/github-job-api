@@ -1,4 +1,4 @@
-import React,{useRef,useLayoutEffect} from 'react';
+import React,{useRef,useLayoutEffect,useEffect} from 'react';
 import {connect} from 'react-redux';
 import '../sass/utilities.scss';
 import '../sass/detail-page.scss';
@@ -14,7 +14,7 @@ const DetailPage = (props) => {
    const howApplyDescription = useRef();
    const getTimePassed = useDate();
    const [changeFontDarkMode] = useDarkMode();
-   console.log(job);
+  
 
    useLayoutEffect(() => {
     
@@ -33,15 +33,23 @@ const DetailPage = (props) => {
    }, [])
 
 
+   useEffect(() => {
+        changeTitleColor();
+   }, [props.isDarkModeActive])
+
+
    const changeTitleColor = () =>{
     const paragraps = document.querySelectorAll("p > strong");
     const headings = document.querySelectorAll("h1");
 
    paragraps.forEach((p=>{
-      if(props.isDarkModeActive) 
-         p.style.color = "white";
-   
+     props.isDarkModeActive? p.style.color="white": p.style.color = "#19202D"
+         
    }))
+
+   headings.forEach((heading)=>{
+     props.isDarkModeActive? heading.style.color = "white": heading.style.color = "#19202D"
+   })
 
 
    }
@@ -87,7 +95,7 @@ const DetailPage = (props) => {
    
     
     return (
-        <section class="detail-page-wrapper">
+        <section className="detail-page-wrapper">
             <div className="container-detail">
             <div className={`header container ${props.isDarkModeActive? 'blackBG':''}`}>
                 <div className="logo-container">
@@ -103,7 +111,7 @@ const DetailPage = (props) => {
            <section className={`job-details-container container top-spacing ${props.isDarkModeActive? 'blackBG': ''}`}>
                 <div className="job-header-container">
                     <div className="job-header-info">
-                        <div class="info">
+                        <div className="info">
                             <span> {getTimePassed(job.dataJob.created_at)}</span>
                             <div className="circle"> </div>
                             <span>{job.dataJob.type}</span>

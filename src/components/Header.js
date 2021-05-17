@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import DarkToggleMode from './DarkToggleMode';
 import useDimension from './hooks/useDimension';
 import logo from '../assets/desktop/logo.svg';
@@ -45,7 +45,7 @@ const Header = () => {
   return (
         <div className="main-header" style={getBackground()}>
           <div className="container">
-            <img src={logo} alt="image"/>
+            <img src={logo} alt="logo"/>
             <DarkToggleMode/>
           </div>
          

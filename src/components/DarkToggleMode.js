@@ -16,13 +16,13 @@ class DarkToggleMode extends Component {
   
       return (
             <div className="toogle-container">
-               <img src={IconSun} alt={"image"}/> 
+               <img src={IconSun} alt={" sun"}/> 
                  <div className="toggle-btn-container" onClick={this.props.activeDarkMode}>
                    <div className={`toggle-btn ${this.props.isDarkModeActive? 'move': ''}`} >
                    
                    </div>
                  </div>
-               <img src={IconMoon} alt={"image"}/> 
+               <img src={IconMoon} alt={"moon"}/> 
          
 
 

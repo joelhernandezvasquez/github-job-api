@@ -1,8 +1,8 @@
-import {useState,useRef,useEffect } from 'react';
+import {useEffect } from 'react';
 import {connect} from 'react-redux';
 import UseDimension from './hooks/useDimension';
 import useDarkMode from './hooks/useDarkMode';
-import {activeMobileSearchModal,fetchingJobs,setSearchTerm,setLocation} from '../actions/index';
+import {activeMobileSearchModal,fetchingJobs} from '../actions/index';
 import FilterLocation from './FilterLocation';
 import "../sass/utilities.scss";
 import '../sass/components/filterLocation.scss';
@@ -15,7 +15,7 @@ import SearchJobResults from './SearchJobResults'
 const MobileFilterSearch = ({activeMobileSearchModal,fetchingJobs,searchTerm,setSearchTerm,isDarkModeActive}) => {
     
     const viewport = UseDimension();
-    const [changeBackgroundDarkMode,changeFontDarkMode,getWhiteBG] = useDarkMode();
+    const [changeBackgroundDarkMode] = useDarkMode();
    
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {activeOverlay,activeDarkMode} from '../actions';
+import {activeOverlay} from '../actions';
 import '../sass/utilities.scss';
 
 

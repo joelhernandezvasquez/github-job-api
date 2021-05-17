@@ -54,7 +54,7 @@ class JobsList extends Component {
      
 
     render() {
-      const jobsList = this.props.jobs.filter((job,index) => index < this.state.numberOfRender);
+     
         return (
             <div className="job-list">
                <div className="container">
